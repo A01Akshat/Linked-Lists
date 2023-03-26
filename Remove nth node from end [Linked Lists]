@@ -1,0 +1,129 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+
+    
+        ListNode temp = head;
+        int count = 0;
+
+        
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+
+        // Calculate the index of the node to be removed from the beginning of the list
+        int len = count - n;
+
+        // If the first node needs to be removed, update the head and return
+        if (len == 0) {
+            head = head.next;
+        } 
+        else {
+            
+            ListNode prev = head;
+            while (len - 1 != 0) {
+                prev = prev.next;
+                len--;
+            }
+       
+        prev.next = prev.next.next;
+        }
+
+   
+    return head;
+    }
+}
+
+
+
+
+
+
+
+//Initial version 
+
+
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+ListNode ptr=head;
+ListNode ptr2=head;
+int len=0;
+        while(head.next!=null)
+        {
+            len++;
+            head=head.next;
+        }
+
+if(len==0)
+{
+    return head=head.next;
+}
+else{
+        int i=len-n;
+        int x=0;
+
+        while(x<i)
+        {
+            x++;
+            ptr=ptr.next;
+
+        }
+        if(ptr.next!=null)
+        {
+            ptr.next=ptr.next.next;
+        }
+        else
+        {
+            ptr.next=null;
+        }
+}
+
+
+        return ptr2;
+
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
