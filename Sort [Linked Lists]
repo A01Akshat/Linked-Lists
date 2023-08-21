@@ -1,19 +1,37 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
+----------------- C++ ---------------------------------
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        ListNode* ptr=head;
+        vector<int>v;
+        while(ptr!=NULL)
+        {
+            v.push_back(ptr->val);
+            ptr=ptr->next;
+        }
+        sort(v.begin(),v.end());
+        ptr=head;
+        int count=0;
+        while(ptr!=NULL)
+        {
+            ptr->val=v[count];
+            ptr=ptr->next;
+            count++;
+        }
+        return head;
+    }
+};
+
+-----------------------------------------------------------
+
+
+
+
 class Solution {
     public ListNode sortList(ListNode head) {
        ListNode ptr=head;
        int c=0;
       
-
         while(ptr!=null){
             c++;
             ptr=ptr.next;
@@ -37,7 +55,5 @@ class Solution {
            ptr=ptr.next;
        }
        return head;
-
-
     }
 }
