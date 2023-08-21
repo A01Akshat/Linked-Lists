@@ -1,0 +1,20 @@
+------------------MORRIS TRAVERSAL----------------------------
+class Solution {
+    public void flatten(TreeNode root) {
+        if(root==null)return;
+        while(root!=null)
+        {
+            if(root.left!=null){
+            TreeNode left=root.left;
+            TreeNode curr=left;
+            while(curr.right!=null)curr=curr.right;
+            curr.right=root.right;
+            root.left=null;
+            root.right=left;
+        }
+        root=root.right;
+        }
+
+
+    }
+}
